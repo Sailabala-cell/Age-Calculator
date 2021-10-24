@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="css/style.css">
+    <title>Age calculator</title>
+</head>
+<body>
+    <div class="age" >
+        <input type="date" id="dob"/>
+        <input type="submit" value="Calculate Age" onclick="calAge()"/>
+    </div>
+    <p id="demo"></p>
+</body>
+<script>
+function calAge(){
+    var inputage=document.getElementById("dob").value;
+
+    var userdate=Date.parse(inputage)
+    var nowdate=Date.now();
+
+    var agemilli=nowdate-userdate;
+    
+    var minutes=1000*60
+    var hours=minutes*60;
+    var days=hours*24;
+    var years=days*365;
+
+    var yy=Math.round(agemilli/years)
+    var months=yy*12;
+    var days=yy*365;
+    var hours=Math.round(agemilli/hours)
+    document.getElementById("demo").innerHTML="Age in years"+":"+yy+
+    "<br/>Age in months" +":"+ months +"<br/>Age in days" +":"+ 
+    days + "<br/>Age in hours" +":"+ hours;
+}
+</script>
+
+</html>
